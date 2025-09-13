@@ -1,12 +1,20 @@
 
+
 import { Module } from '@nestjs/common';
+import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
+
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { UploadModule } from './upload/upload.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb+srv://nhannt221it_db_user:Y293fJej2ApYJ4el@cluster0.wjbca0f.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'),
+    ConfigModule.forRoot({ isGlobal: true }),
+    MongooseModule.forRoot(
+      process.env.MONGODB_URI ?? (() => { throw new Error('MONGODB_URI is not defined'); })()
+    ),
+    UploadModule,
   ],
   controllers: [AppController],
   providers: [AppService],
