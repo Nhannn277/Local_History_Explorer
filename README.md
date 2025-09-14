@@ -1,3 +1,13 @@
+## Chạy bằng Docker
+### 1. Build và chạy toàn bộ hệ thống
+```bash
+docker-compose up --build
+```
+### 2. Truy cập:
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:5173
+- MinIO Console: http://localhost:9001 (user/pass: minioadmin)
+- MongoDB: mongodb://root:example@localhost:27017/
 # Local History Explorer
 
 ## Mục lục
