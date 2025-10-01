@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Avatar - Speech to Text</title>
+  <style>
+    body {
+      margin: 0;
+      background: url('background.jpg') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+    .avatar {
+      width: 300px;
+      height: auto;
+    }
+    .mic-btn {
+      margin-top: 20px;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    }
+    .mic-btn img {
+      width: 40px;
+      height: 40px;
+      filter: invert(100%);
+    }
+    #result {
+      margin-top: 20px;
+      width: 400px;
+      min-height: 100px;
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Avatar -->
+  <img src="aAI_AVATAR.jpg" alt="AI Avatar" class="avatar">
+
+  <!-- Mic button -->
+  <div class="mic-btn" id="micBtn">
+    <img src="mic.png" alt="Mic Icon">
+  </div>
+
+  <!-- Output text -->
+  <div id="result">🎤 Hãy nhấn micro để bắt đầu nói...</div>
+
+<script>
+  let recognition;
+  let recognizing = false;
+  let finalTranscript = "";
+
+  if (!('webkitSpeechRecognition' in window)) {
+    alert("⚠️ Trình duyệt không hỗ trợ Web Speech API. Hãy dùng Chrome hoặc Edge!");
+  } else {
+    recognition = new webkitSpeechRecognition();
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.lang = "vi-VN";
+
+    recognition.onstart = () => {
+      recognizing = true;
+      document.getElementById("result").innerHTML = "🎙️ Đang nghe...";
+      document.getElementById("micBtn").style.background = "green";
+    };
+
+    recognition.onend = () => {
+      recognizing = false;
+      document.getElementById("micBtn").style.background = "red";
+    };
+
+    recognition.onresult = (event) => {
+      let interimTranscript = "";
+      for (let i = event.resultIndex; i < event.results.length; ++i) {
+        if (event.results[i].isFinal) {
+          finalTranscript += event.results[i][0].transcript + " ";
+        } else {
+          interimTranscript += event.results[i][0].transcript;
+        }
+      }
+      document.getElementById("result").innerHTML =
+        "<b>Đã nhận dạng:</b> " + finalTranscript + "<br><i>" + interimTranscript + "</i>";
+    };
+  }
+
+  // Khi click mic → start/stop
+  document.getElementById("micBtn").onclick = () => {
+    if (!recognizing) {
+      // reset transcript mỗi lần bắt đầu mới
+      finalTranscript = "";
+      document.getElementById("result").innerHTML = "🎙️ Đang nghe...";
+      recognition.start();
+    } else {
+      recognition.stop();
+    }
+  };
+</script>
+
+</body>
+</html>

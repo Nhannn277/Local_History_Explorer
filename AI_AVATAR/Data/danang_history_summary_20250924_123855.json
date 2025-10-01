@@ -1,0 +1,64 @@
+{
+  "original_document": {
+    "title": "%C4%90%C3%80-N%E1%BA%B4NG-L%E1%BB%8ACH-S%E1%BB%AC-H%C3%8CNH-TH%C3%80NH",
+    "url": "https://www.vovanhoe.com/wp-content/uploads/2021/05/%C4%90%C3%80-N%E1%BA%B4NG-L%E1%BB%8ACH-S%E1%BB%AC-H%C3%8CNH-TH%C3%80NH.pdf",
+    "total_characters": 77713,
+    "total_words": 17395
+  },
+  "split_summary": {
+    "total_pages": 51,
+    "total_topics": 8,
+    "total_paragraphs": 8,
+    "processing_date": "2025-09-24T12:38:55.350149"
+  },
+  "topics_breakdown": [
+    {
+      "title": "Giới thiệu chung về Đà Nẵng",
+      "section_type": "introduction",
+      "word_count": 1096,
+      "char_count": 4808
+    },
+    {
+      "title": "I. Lịch sử hình thành",
+      "section_type": "history_formation",
+      "word_count": 6102,
+      "char_count": 27121
+    },
+    {
+      "title": "II. Tên gọi Đà Nẵng theo người Pháp, người Trung Hoa, các nhà nghiên cứu người Việt",
+      "section_type": "naming_origin",
+      "word_count": 2627,
+      "char_count": 11679
+    },
+    {
+      "title": "III. Thời kỳ thành lập làng xã người Việt",
+      "section_type": "village_establishment",
+      "word_count": 6719,
+      "char_count": 30215
+    },
+    {
+      "title": "Làng Đà Sơn",
+      "section_type": "village_history",
+      "word_count": 1978,
+      "char_count": 8823
+    },
+    {
+      "title": "Làng Phong Lệ",
+      "section_type": "village_history",
+      "word_count": 2043,
+      "char_count": 9350
+    },
+    {
+      "title": "V. Sau năm 1975 - Thời kỳ hiện đại",
+      "section_type": "modern_period",
+      "word_count": 561,
+      "char_count": 2569
+    },
+    {
+      "title": "Tài liệu tham khảo",
+      "section_type": "references",
+      "word_count": 290,
+      "char_count": 1316
+    }
+  ]
+}
